@@ -76,3 +76,5 @@ A utilização do FDD proporcionará os seguintes benefícios para o projeto:
 * Implementação de testes unitários e de integração.
 * Monitoramento de qualidade de código.
 * Integração contínua (CI) e integração contínua/desdobramento contínuo (CI/CD).
+
+Para acessar mais informações e detalhes sobre o projeto, como progresso das histórias de usuários, clique no [Board.](https://trello.com/b/kfTzpUDS/tcc)
