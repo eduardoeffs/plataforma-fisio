@@ -20,7 +20,7 @@ Desenvolver um sistema de acompanhamento de pacientes em fisioterapia, que permi
     * Implementação de medidas de criptografia e autenticação segura para garantir a segurança dos dados dos pacientes.
     *Garantia de conformidade com regulamentações de privacidade de dados, como a Lei Geral de Proteção de Dados (LGPD).
 5. Testes e Validação:
-    *Realização de testes unitários e de integração no sistema para assegurar seu funcionamento adequado.
+    * Realização de testes unitários e de integração no sistema para assegurar seu funcionamento adequado.
 In the project directory, you can run:
 
 # Tecnologias utilizadas
