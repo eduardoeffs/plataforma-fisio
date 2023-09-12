@@ -21,7 +21,12 @@ Desenvolver um sistema de acompanhamento de pacientes em fisioterapia, que permi
     *Garantia de conformidade com regulamentações de privacidade de dados, como a Lei Geral de Proteção de Dados (LGPD).
 5. Testes e Validação:
     * Realização de testes unitários e de integração no sistema para assegurar seu funcionamento adequado.
-In the project directory, you can run:
+
+[Diagrama de Classe.](https://github.com/eduardoeffs/plataforma-fisio/blob/master/docs/diagrama-de-classe/diagrama-de-classe.jpg)
+</br>
+
+[Fluxo.](https://github.com/eduardoeffs/plataforma-fisio/blob/master/docs/diagrama-de-fluxo/fluxo.jpg)
+
 
 # Tecnologias utilizadas
 ## Frontend
@@ -33,12 +38,40 @@ In the project directory, you can run:
 ## Backend
 * Node.js: Plataforma JavaScript para construção de aplicações do lado do servidor.
 * Express.js: Framework para construir aplicativos web com Node.js.
+* SQL Server: Sistema de gerenciamento de banco de dados relacional.
 * MSSQL: Biblioteca para conexão e interação com o SQL Server.
 * JWT (JSON Web Tokens): Para autenticação e autorização de usuários.
 
 ## Teste e qualidade
 * Cypress: Framework de teste de ponta a ponta para testar a interface do usuário.
 * SonarQube: Análise estática de código e detecção de problemas de qualidade.
+
+# Requisitos do projeto
+## Requisitos funcionais:
+1. Cadastro de Usuários:
+    * RF1: Fisioterapeutas podem criar contas com informações de login seguras.
+    * RF2: Fisioterapeutas podem adicionar, editar e remover pacientes associados à sua conta.
+2. Painel do Fisioterapeuta:
+    * RF3: Fisioterapeutas podem visualizar uma lista de pacientes associados à sua conta.
+    * RF4: Fisioterapeutas podem adicionar, editar e remover pacientes.
+    * RF5: Fisioterapeutas podem visualizar o progresso de cada paciente através dos formulários preenchidos por cada paciente.
+    * RF6: Fisioterapeutas podem visualizar o histórico de formulários de cada paciente.
+3. Painel do Paciente:
+    * RF7: Pacientes podem preencher o formulário sobre o seu progresso.
+    * RF8: Pacientes podem visualizar o histórico dos formulários preenchidos.
+## Requisitos Não Funcionais:
+1. Segurança e Privacidade:
+    * RNF1: Implementação de medidas de criptografia para garantir a segurança dos dados dos pacientes.
+    * RNF2: Autenticação segura para acesso ao sistema.
+    * RNF3: Garantia de conformidade com regulamentações de privacidade de dados, como a Lei Geral de Proteção de Dados (LGPD).
+2. Desempenho:
+    * RNF4: O sistema deve responder de forma rápida e eficiente, mesmo com um grande número de usuários e registros.
+3. Usabilidade:
+    * RNF6: A interface do usuário deve ser intuitiva e de fácil navegação para fisioterapeutas e pacientes.
+4. Manutenibilidade:
+    * RNF8: O código deve ser bem organizado e documentado para facilitar futuras atualizações e manutenções.
+5. Testes e Validação:
+    * RNF9: Realização de testes unitários e de integração no sistema para assegurar seu funcionamento adequado.
 
 
 # Metodologia de Organização de Tarefas
