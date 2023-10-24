@@ -1,51 +1,51 @@
+
 const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
-const sql = require('mssql'); // Importar a biblioteca mssql
 const cors = require('cors');
+const mongoose = require('mongoose');
+const Patient = require('../models/Patient');
+
+
 const app = express();
-
-app.use(bodyParser.json());
+const PORT = 3001;
 app.use(cors());
+app.use(express.json());
 
-// Configurações do banco de dados SQL Server
-const dbConfig = {
-  user: 'seu-usuario',
-  password: 'sua-senha',
-  server: 'nome-do-servidor',
-  database: 'nome-do-banco-de-dados',
-};
 
-// Rota para a página de login do terapeuta
-app.get('/therapist-login', (req, res) => {
-  // Envie o arquivo HTML da página de login do terapeuta
-  res.sendFile(path.join(__dirname, 'therapist-login.html'));
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+const authRoutes = require('../controllers/authController');
+app.use('/api', authRoutes);
+
+
+
+// Conectar ao banco de dados MongoDB
+mongoose.connect('mongodb://localhost:27017/fisio_app', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
+
+
 
 // Rota para criar paciente
 app.post('/api/create-patient', async (req, res) => {
   // Obter os dados do paciente do corpo da requisição
   const { firstName, lastName, email, password } = req.body;
 
+  // Criptografe a senha antes de salvar no banco de dados
+  const passwordHash = await bcrypt.hash(password, saltRounds);
+
   try {
-    // Conectar ao banco de dados
-    const pool = await sql.connect(dbConfig);
+    // Criar um novo paciente
+    const newPatient = new Patient({
+      firstName,
+      lastName,
+      email,
+      password: passwordHash,
+    });
 
-    // Inserir o novo paciente na tabela "Patients"
-    const query = `
-      INSERT INTO Patients (FirstName, LastName, Email, Password)
-      VALUES (@firstName, @lastName, @email, @password);
-    `;
-
-    await pool.request()
-      .input('firstName', sql.VarChar, firstName)
-      .input('lastName', sql.VarChar, lastName)
-      .input('email', sql.VarChar, email)
-      .input('password', sql.VarChar, password)
-      .query(query);
-
-    // Fechar a conexão com o banco de dados
-    pool.close();
+    // Salvar o paciente no banco de dados
+    await newPatient.save();
 
     // Exemplo de resposta de sucesso
     res.status(201).json({ message: 'Paciente criado com sucesso.' });
@@ -56,6 +56,6 @@ app.post('/api/create-patient', async (req, res) => {
 });
 
 // Iniciar o servidor
-app.listen(3001, () => {
-  console.log('Servidor rodando na porta 3001');
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });

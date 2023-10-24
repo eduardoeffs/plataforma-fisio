@@ -1,13 +1,33 @@
-// src/components/PatientLogin.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
 
 function PatientLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleLogin = () => {
-    // Lógica de login aqui
+  const handleLogin = async (event) => {
+    event.preventDefault(); // Isso evita o recarregamento da página
+
+    try {
+      const response = await axios.post('http://localhost:3001/api/patient-login', {
+        email,
+        password
+      });
+
+      if (response.data.message === 'Autenticação bem-sucedida.') {
+        // Redirecione para o painel do paciente
+        navigate('/patient-dashboard');
+      } 
+    } catch (error) {
+      if(error.response && error.response.status === 401) {
+        alert('Email ou senha incorretos.');
+      } else {
+        alert('Erro de conexão com o servidor.')
+      }
+      
+    }
   };
 
   return (

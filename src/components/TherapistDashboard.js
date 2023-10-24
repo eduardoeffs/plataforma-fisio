@@ -14,7 +14,7 @@ const TherapistDashboard = () => {
   }, []);
 
   const fetchPatients = () => {
-    axios.get('/api/get-patients')
+    axios.get(`${API_URL}/api/get-patients`)
       .then(response => {
         setPatients(response.data);
       })
@@ -24,12 +24,14 @@ const TherapistDashboard = () => {
   };
 
   const handleAddPatient = () => {
+    console.log("Cheguei")
     const newPatient = {
       firstName: firstName,
       lastName: lastName,
       email: email,
       password: password
     };
+    console.log("Cheguei2")
 
     axios.post(`${API_URL}/api/create-patient`, newPatient)
       .then(response => {
@@ -80,7 +82,7 @@ const TherapistDashboard = () => {
       <h3>Lista de Pacientes</h3>
       <ul>
         {patients.map(patient => (
-          <li key={patient.id}>
+          <li key={patient._id}>
             <strong>Nome:</strong> {patient.firstName} {patient.lastName}<br />
             <strong>E-mail:</strong> {patient.email}
           </li>
