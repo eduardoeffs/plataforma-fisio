@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 const API_URL = 'http://localhost:3001';
 
 const TherapistDashboard = () => {
@@ -9,33 +10,49 @@ const TherapistDashboard = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  // Chamada de API para buscar pacientes existentes
   useEffect(() => {
     fetchPatients();
   }, []);
 
   const fetchPatients = () => {
-    axios.get(`${API_URL}/api/get-patients`)
+    axios.get(`${API_URL}/api/patients`)
       .then(response => {
-        setPatients(response.data);
+        setPatients(response.data.patients);
       })
       .catch(error => {
         console.error('Erro ao buscar pacientes:', error);
       });
   };
 
+  function isValidEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
+
   const handleAddPatient = () => {
-    console.log("Cheguei")
+    if (!firstName || !lastName || !email || !password) {
+      alert('Todos os campos são obrigatórios.');
+      // Aqui você pode configurar uma mensagem de erro no estado e mostrar para o usuário.
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      alert('Por favor, insira um endereço de e-mail válido.');
+      // Definir mensagem de erro para o usuário
+      return;
+    }
     const newPatient = {
       firstName: firstName,
       lastName: lastName,
       email: email,
       password: password
     };
-    console.log("Cheguei2")
 
     axios.post(`${API_URL}/api/create-patient`, newPatient)
       .then(response => {
         console.log('Paciente criado com sucesso:', response.data);
+        alert('Paciente criado com sucesso!')
         fetchPatients(); // Atualizar a lista de pacientes após a criação
         // Limpar os campos do formulário após a criação
         setFirstName('');
@@ -79,16 +96,25 @@ const TherapistDashboard = () => {
         />
         <button onClick={handleAddPatient}>Adicionar Paciente</button>
       </div>
-      <h3>Lista de Pacientes</h3>
-      <ul>
-        {patients.map(patient => (
-          <li key={patient._id}>
-            <strong>Nome:</strong> {patient.firstName} {patient.lastName}<br />
-            <strong>E-mail:</strong> {patient.email}
-          </li>
-        ))}
-      </ul>
+      <h2 className="subtitle">Lista de Pacientes</h2>
+    <div className="columns is-multiline">
+      {patients.map(patient => (
+        <div key={patient._id} className="column is-one-third">
+          <div className="card">
+            <div className="card-content">
+              <p className="title is-4">{patient.firstName} {patient.lastName}</p>
+              <p className="subtitle is-6">{patient.email}</p>
+              <div className="content">
+                <Link to={`/patient-reports/${patient._id}`} className="button is-link">
+                  Ver Relatórios
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
+  </div>
   );
 };
 

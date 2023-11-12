@@ -5,6 +5,7 @@ import PatientLogin from './components/PatientLogin';
 import TherapistLogin from './components/TherapistLogin';
 import PatientDashboard from './components/PatientDashboard';
 import TherapistDashboard from './components/TherapistDashboard';
+import PatientReports from './components/PatientReports';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
           <Route path="/therapist-login" element={<TherapistLogin />} />
           <Route path="/patient-dashboard" element={<PatientDashboard />} />
           <Route path="/therapist-dashboard" element={<TherapistDashboard />} />
+          <Route path="/patient-reports/:patientId" element={<PatientReports/>} />
+          
         </Routes>
       </div>
     </Router>

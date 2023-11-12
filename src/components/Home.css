@@ -44,3 +44,27 @@
     background-color: #555;
   }
   
+  .card {
+    background-color: #4a4a4a; /* Cor de fundo escura */
+    color: #fff; /* Texto branco */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1); /* Sombra leve */
+  }
+  
+  .card .button {
+    border-radius: 5px;
+    color: #fff;
+  }
+  
+  .card .button:hover {
+    background-color: #6b3434; /* Cor mais escura para o hover do botão */
+  }
+
+  .button.is-success {
+    background-color: #7dcd99; /* Verde personalizado, se necessário */
+  }
+  
+  /* Se você precisar de um estilo mais específico para os botões arredondados */
+  .button.is-rounded {
+    border-radius: 5px; /* Valor alto para torná-lo completamente circular */
+  }
