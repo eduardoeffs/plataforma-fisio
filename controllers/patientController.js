@@ -43,3 +43,13 @@ exports.submitReport = async (req, res) => {
     res.status(500).json({ message: 'Erro ao enviar relatório.', error: error.message });
   }
 };
+
+exports.deletePatient = async (req, res) => {
+  try {
+    const patientId = req.params.patientId;
+    await Patient.findByIdAndDelete(patientId);
+    res.status(200).json({ message: 'Paciente deletado com sucesso.' });
+  } catch (error) {
+    res.status(500).json({ message: 'Erro ao deletar o paciente.', error: error.message });
+  }
+};

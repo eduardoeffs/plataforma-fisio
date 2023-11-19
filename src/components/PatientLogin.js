@@ -36,14 +36,14 @@ function PatientLogin() {
     <section className="section">
   <div className="container">
     <div className="columns is-centered">
-      <div className="column is-5-tablet is-4-desktop is-3-widescreen">
-        <div className="box" style={{ boxShadow: 'none' }}>
+      <div className="column is-4">
+        <div className="box" >
           <h3 className="title is-3 has-text-grey-dark has-text-centered">Login do Paciente</h3>
           <form onSubmit={handleLogin}>
             <div className="field">
               <p className="control has-icons-left has-icons-right">
                 <input
-                  className="input is-medium"
+                  className="input"
                   type="email"
                   placeholder='E-mail'
                   value={email}
@@ -52,13 +52,16 @@ function PatientLogin() {
                 <span className="icon is-small is-left">
                   <i className="fas fa-envelope"></i>
                 </span>
+                <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
               </p>
             </div>
 
             <div className="field">
               <p className="control has-icons-left">
                 <input
-                  className="input is-medium"
+                  className="input"
                   type="password"
                   placeholder='Senha'
                   value={password}
@@ -71,7 +74,7 @@ function PatientLogin() {
             </div>
 
             <div className="field">
-              <button className="button is-success is-fullwidth is-medium" type="submit">
+              <button className="button is-success is-fullwidth is-rounded" type="submit">
                 Login
               </button>
             </div>

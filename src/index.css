@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.card-header {
+  padding: 5px 10px; /* Exemplo de valores de padding menores */
+}
+
+.trash-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.trash-button:hover {
+  background: none;
+}
+
+.trash-button .fa-trash {
+  color: #555;
+  opacity: 0.4;
+}
+
+.trash-button:hover .fa-trash {
+  color: #ff3860; 
+  opacity: 1;
+}

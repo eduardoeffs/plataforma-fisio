@@ -69,12 +69,13 @@ function PatientDashboard() {
 
   return (
     <section className="section">
-      <div className="container">
+      <div className="container box column is-6">
         <h2 className="title is-2">Painel do Paciente</h2>
         <p className="subtitle">Bem-vindo ao seu painel, paciente!</p>
 
         <form onSubmit={handleSubmit}>
-
+          
+          
           <div className="field">
             <label className="label">Dor inicial:</label>
             <div className="control">
@@ -97,27 +98,28 @@ function PatientDashboard() {
           </div>
 
           <div className="field">
-            <label className="label">Descrição adicional:</label>
+            <label className="label">Observações:</label>
             <div className="control">
               <textarea className="textarea" name="descri" value={reportForm.descri} onChange={handleInputChange}></textarea>
             </div>
           </div>
 
-          <div className="field is-grouped">
+          <div className="field">
             <div className="control">
-              <button type='submit' className="button is-link">Enviar Relatório</button>
-            </div>
-            <div className="control">
-              <Link className="button is-text" to="/">Voltar para a Página Inicial</Link>
+              <button type='submit' className="button is-link mt-2">Enviar Relatório</button>
             </div>
           </div>
         </form>
-        <div className="buttons">
-          <Link to={`/patient-reports/${patientId}`} className="button is-primary">
+        <div className="control">
+          <Link to={`/patient-reports/${patientId}`} className="button is-primary mt-2">
             Visualizar Meus Relatórios
           </Link>
+          <div className="control">
+              <Link className="button is-text mt-2" to="/">Voltar para a Página Inicial</Link>
+            </div>
       
         </div>
+        
         
       </div>
     </section>

@@ -7,6 +7,9 @@ import PatientDashboard from './components/PatientDashboard';
 import TherapistDashboard from './components/TherapistDashboard';
 import PatientReports from './components/PatientReports';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bulma/css/bulma.min.css';
+
 
 function App() {
   return (

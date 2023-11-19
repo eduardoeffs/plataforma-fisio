@@ -29,11 +29,12 @@ function TherapistLogin() {
 
   return (
     <section className="section">
+      
   <div className="container">
     <div className="columns is-centered">
       <div className="column is-4">
         <div className="box">
-          <h2 className="title is-2 has-text-centered">Login do Fisioterapeuta</h2>
+          <h2 className="title is-3 has-text-grey-dark has-text-centered">Login do Fisioterapeuta</h2>
           <form onSubmit={handleLogin}>
             <div className="field">
               <p className="control has-icons-left has-icons-right">
@@ -44,11 +45,11 @@ function TherapistLogin() {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-user"></i>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
                 </span>
-                <span className="icon is-small is-left">
-                  <i className="fas fa-check"></i>
+                <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
                 </span>
               </p>
             </div>
@@ -83,7 +84,9 @@ function TherapistLogin() {
       </div>
     </div>
   </div>
+  
 </section>
+
   );
 }
 

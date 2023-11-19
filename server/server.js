@@ -129,6 +129,9 @@ app.get('/api/patients/:patientId/reports', async (req, res) => {
     res.status(500).send('Erro ao buscar relatórios.');
   }
 });
+
+app.delete('/api/patients/:patientId', patientController.deletePatient);
+
 // Iniciar o servidor
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);

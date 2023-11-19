@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { format } from 'date-fns';
 
 const PatientReports = () => {
   const [reports, setReports] = useState([]);
@@ -34,12 +35,13 @@ const PatientReports = () => {
                   Relatório {index + 1}
                 </p>
               </header>
-              <div className="card-content">
+              <div className="card-content mb-5">
                 <div className="content">
                   <p><strong>Dor Inicial:</strong> {report.dorInicial}</p>
                   <p><strong>Escala EVA:</strong> {report.escalaEVA}</p>
                   <p><strong>Escala Borg:</strong> {report.escalaBorg}</p>
-                  <p><strong>Descrição:</strong> {report.descri}</p>
+                  <p><strong>Observações:</strong> {report.descri}</p>
+                  <p><strong>Data:</strong> {format(new Date(report.createdAt), 'dd/MM/yyyy')}</p>
                 </div>
               </div>
             </div>
