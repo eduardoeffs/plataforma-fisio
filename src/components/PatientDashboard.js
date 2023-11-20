@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3001'; // Substitua pela URL da sua API
+const API_URL = 'http://localhost:3001';
 
 function PatientDashboard() {
   const [reports, setReports] = useState([]);
@@ -82,38 +82,38 @@ function PatientDashboard() {
         <form onSubmit={handleSubmit}>
           
           <div className="field">
-            <label className="label">Dor inicial:</label>
+            <label className="label" htmlFor="dorInicial" >Dor inicial:</label>
             <div className="control">
-              <input className="input" type="text" name="dorInicial" value={reportForm.dorInicial} onChange={handleInputChange} required/>
+              <input className="input" type="text" id="dorInicial" name="dorInicial" value={reportForm.dorInicial} onChange={handleInputChange} data-testid="dorInicial-input" required/>
             </div>
           </div>
   
           <div className="field">
-            <label className="label">Escala EVA: <span className="icon-text tooltip-parent has-tooltip-arrow" data-tooltip="Escala Visual Analógica (EVA) é utilizada para medir a intensidade da dor. De 0 a 10.">
+            <label className="label"htmlFor="escalaEVA">Escala EVA: <span className="icon-text tooltip-parent has-tooltip-arrow" data-tooltip="Escala Visual Analógica (EVA) é utilizada para medir a intensidade da dor. De 0 a 10.">
               <span className="icon">
                 <i className="fas fa-info-circle"></i>
               </span>
             </span></label>
             <div className="control">
-              <input className="input" type="number" name="escalaEVA" value={reportForm.escalaEVA} onChange={handleInputChange} required/>
+              <input className="input" type="number" id="escalaEVA" name="escalaEVA" value={reportForm.escalaEVA} onChange={handleInputChange} data-testid="escalaEVA-input" required/>
             </div>
           </div>
   
           <div className="field">
-            <label className="label">Escala Borg: <span className="icon-text tooltip-parent has-tooltip-arrow" data-tooltip="Escala Borg é utilizada para medir a percepção do esforço durante a atividade física. De 0 a 10.">
+            <label className="label"htmlFor="escalaBorg">Escala Borg: <span className="icon-text tooltip-parent has-tooltip-arrow" data-tooltip="Escala Borg é utilizada para medir a percepção do esforço durante a atividade física. De 0 a 10.">
               <span className="icon">
                 <i className="fas fa-info-circle"></i>
               </span>
             </span></label>
             <div className="control">
-              <input className="input" type="number" name="escalaBorg" value={reportForm.escalaBorg} onChange={handleInputChange} required/>
+              <input className="input" type="number" id="escalaBorg" name="escalaBorg" value={reportForm.escalaBorg} onChange={handleInputChange} data-testid="escalaBorg-input" required/>
             </div>
           </div>
   
           <div className="field">
-            <label className="label">Observações:</label>
+            <label className="label" htmlFor="Observações:">Observações:</label>
             <div className="control">
-              <textarea className="textarea" name="descri" value={reportForm.descri} onChange={handleInputChange}required></textarea>
+              <textarea className="textarea" id="descri" name="descri" value={reportForm.descri} onChange={handleInputChange} data-testid="descri-input" required></textarea>
             </div>
           </div>
   
