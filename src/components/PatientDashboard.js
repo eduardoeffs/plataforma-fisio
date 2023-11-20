@@ -47,6 +47,12 @@ function PatientDashboard() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!reportForm.dorInicial || !reportForm.escalaEVA || !reportForm.escalaBorg || !reportForm.descri) {
+      alert('Por favor, preencha todos os campos antes de enviar o relatório.');
+      return;
+    }
+
     try {
       const response = await axios.post(`${API_URL}/api/patients/${patientId}/submit-report`, reportForm);
       // Adicione o novo relatório ao estado 'reports'
@@ -60,7 +66,7 @@ function PatientDashboard() {
         
       });
       console.log(reportForm)
-      // Opcional: redirecione para a página de relatórios ou exiba uma mensagem de sucesso
+      alert('Relatório enviado com sucesso!')
     } catch (error) {
       console.error('Erro ao enviar o relatório:', error);
       // Exiba um erro ou trate como necessário
@@ -72,38 +78,45 @@ function PatientDashboard() {
       <div className="container box column is-6">
         <h2 className="title is-2">Painel do Paciente</h2>
         <p className="subtitle">Bem-vindo ao seu painel, paciente!</p>
-
+  
         <form onSubmit={handleSubmit}>
-          
           
           <div className="field">
             <label className="label">Dor inicial:</label>
             <div className="control">
-              <input className="input" type="text" name="dorInicial" value={reportForm.dorInicial} onChange={handleInputChange} />
+              <input className="input" type="text" name="dorInicial" value={reportForm.dorInicial} onChange={handleInputChange} required/>
             </div>
           </div>
-
+  
           <div className="field">
-            <label className="label">Escala EVA:</label>
+            <label className="label">Escala EVA: <span className="icon-text tooltip-parent has-tooltip-arrow" data-tooltip="Escala Visual Analógica (EVA) é utilizada para medir a intensidade da dor. De 0 a 10.">
+              <span className="icon">
+                <i className="fas fa-info-circle"></i>
+              </span>
+            </span></label>
             <div className="control">
-              <input className="input" type="number" name="escalaEVA" value={reportForm.escalaEVA} onChange={handleInputChange} />
+              <input className="input" type="number" name="escalaEVA" value={reportForm.escalaEVA} onChange={handleInputChange} required/>
             </div>
           </div>
-
+  
           <div className="field">
-            <label className="label">Escala Borg:</label>
+            <label className="label">Escala Borg: <span className="icon-text tooltip-parent has-tooltip-arrow" data-tooltip="Escala Borg é utilizada para medir a percepção do esforço durante a atividade física. De 0 a 10.">
+              <span className="icon">
+                <i className="fas fa-info-circle"></i>
+              </span>
+            </span></label>
             <div className="control">
-              <input className="input" type="number" name="escalaBorg" value={reportForm.escalaBorg} onChange={handleInputChange} />
+              <input className="input" type="number" name="escalaBorg" value={reportForm.escalaBorg} onChange={handleInputChange} required/>
             </div>
           </div>
-
+  
           <div className="field">
             <label className="label">Observações:</label>
             <div className="control">
-              <textarea className="textarea" name="descri" value={reportForm.descri} onChange={handleInputChange}></textarea>
+              <textarea className="textarea" name="descri" value={reportForm.descri} onChange={handleInputChange}required></textarea>
             </div>
           </div>
-
+  
           <div className="field">
             <div className="control">
               <button type='submit' className="button is-link mt-2">Enviar Relatório</button>

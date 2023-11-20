@@ -55,6 +55,11 @@ app.post('/api/create-patient', async (req, res) => {
   // Obter os dados do paciente do corpo da requisição
   const { firstName, lastName, email, password } = req.body;
 
+  const existingPatient = await Patient.findOne({ email: email });
+    if (existingPatient) {
+      return res.status(400).json({ message: 'Já existe um paciente com este e-mail.' });
+    }
+
   // Criptografe a senha antes de salvar no banco de dados
   const passwordHash = await bcrypt.hash(password, saltRounds);
 
@@ -132,6 +137,28 @@ app.get('/api/patients/:patientId/reports', async (req, res) => {
 
 app.delete('/api/patients/:patientId', patientController.deletePatient);
 
+app.put('/api/reports/:id', async (req, res) => {
+  try {
+    const report = await Report.findByIdAndUpdate(
+      req.params.id, 
+      req.body, 
+      { new: true }
+    );
+    res.send(report);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+app.delete('/api/reports/:reportId', async (req, res) => {
+  try {
+    await Report.findByIdAndDelete(req.params.reportId);
+    res.status(200).json({ message: 'Relatório excluído com sucesso.' });
+  } catch (error) {
+    console.error('Erro ao excluir relatório:', error);
+    res.status(500).json({ message: 'Erro ao excluir relatório.' });
+  }
+});
 // Iniciar o servidor
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
