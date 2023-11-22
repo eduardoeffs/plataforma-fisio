@@ -19,9 +19,14 @@ jobs:
         with:
           node-version: '14'
       - run: npm install
-      - run: npm test -- --coverage
+      - run: npm test -- --coverage --watchAll=false
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
+        with:
+          args: >
+            -Dsonar.projectKey=eduardoeffs_plataforma-fisio
+            -Dsonar.organization=eduardoeffs
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }
