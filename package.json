@@ -61,6 +61,13 @@
     ]
   },
   "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.test.{js,jsx,ts,tsx}",
+      "!src/**/__tests__/**",
+      "!src/serviceWorker.js",
+      "!src/index.js"
+    ],
     "transformIgnorePatterns": [
       "/node_modules/(?!axios).+\\.js$"
     ],
