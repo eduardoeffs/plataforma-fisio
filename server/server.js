@@ -6,29 +6,23 @@ const Patient = require('../models/Patient');
 const Therapist = require('../models/Therapist')
 const Report = require('../models/Report');
 
-
-
-
-
 const app = express();
 const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-
 const session = require('express-session');
 
 // Configuração do middleware de sessão
 app.use(session({
-  secret: 'secret-session-id', // Uma chave secreta para assinar o cookie de sessão.
-  resave: false, // Não salva a sessão se não houve mudanças
-  saveUninitialized: false, // Não cria sessão até que algo seja armazenado
+  secret: 'secret-session-id', 
+  resave: false, 
+  saveUninitialized: false, 
   cookie: {
-    httpOnly: true, // O cookie só pode ser acessado pelo servidor
-    secure: process.env.NODE_ENV === 'production', // Em produção, defina como true
+    httpOnly: true, 
+    secure: process.env.NODE_ENV === 'production', 
     maxAge: 24 * 60 * 60 * 1000 
   }
 }));
@@ -43,16 +37,13 @@ app.use('/api', authRoutes);
 const patientController = require('../controllers/patientController');
 
 
-// Conectar ao banco de dados MongoDB
 mongoose.connect('mongodb://localhost:27017/fisio_app', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
 
-// Rota para criar paciente
 app.post('/api/create-patient', async (req, res) => {
-  // Obter os dados do paciente do corpo da requisição
   const { firstName, lastName, email, password } = req.body;
 
   const existingPatient = await Patient.findOne({ email: email });
@@ -60,11 +51,11 @@ app.post('/api/create-patient', async (req, res) => {
       return res.status(400).json({ message: 'Já existe um paciente com este e-mail.' });
     }
 
-  // Criptografe a senha antes de salvar no banco de dados
+
   const passwordHash = await bcrypt.hash(password, saltRounds);
 
   try {
-    // Criar um novo paciente
+
     const newPatient = new Patient({
       firstName,
       lastName,
@@ -72,10 +63,8 @@ app.post('/api/create-patient', async (req, res) => {
       password: passwordHash,
     });
 
-    // Salvar o paciente no banco de dados
     await newPatient.save();
 
-    // Exemplo de resposta de sucesso
     res.status(201).json({ message: 'Paciente criado com sucesso.' });
   } catch (error) {
     console.error('Erro ao criar paciente:', error);
@@ -127,8 +116,8 @@ app.post('/api/patients/:patientId/submit-report', patientController.submitRepor
 app.get('/api/patients/:patientId/reports', async (req, res) => {
   try {
     const patientId = req.params.patientId;
-    const reports = await Report.find({ patient: patientId }); // Isso busca todos os relatórios onde o campo 'patient' corresponde ao patientId
-    res.json(reports); // Retorna os relatórios como JSON
+    const reports = await Report.find({ patient: patientId }); //busca todos os relatórios onde o campo 'patient' corresponde ao patientId
+    res.json(reports);
   } catch (error) {
     console.error('Erro ao buscar relatórios:', error);
     res.status(500).send('Erro ao buscar relatórios.');
@@ -159,7 +148,7 @@ app.delete('/api/reports/:reportId', async (req, res) => {
     res.status(500).json({ message: 'Erro ao excluir relatório.' });
   }
 });
-// Iniciar o servidor
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });

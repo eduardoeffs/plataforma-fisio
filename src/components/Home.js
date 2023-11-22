@@ -36,7 +36,7 @@ function Home() {
       </section>
 
       <footer className="footer">
-        <div className="content has-text-centered">
+        <div className="footer content has-text-centered">
           <p>
             &copy; {currentYear} Sistema de Acompanhamento de Dor
           </p>

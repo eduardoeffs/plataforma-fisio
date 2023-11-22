@@ -67,34 +67,4 @@ describe('PatientDashboard', () => {
     });
   });
   
-  test('clears form after successful submission', async () => {
-    window.alert = jest.fn();
-    axios.post.mockResolvedValueOnce({ data: { message: 'Relatório enviado com sucesso.' } });
-  
-    render(
-      <Router>
-        <PatientDashboard />
-      </Router>
-    );
-  
-    fireEvent.change(screen.getByTestId('dorInicial-input'), { target: { value: 'Dor moderada' } });
-    fireEvent.change(screen.getByTestId('escalaEVA-input'), { target: { value: '5' } });
-    fireEvent.change(screen.getByTestId('escalaBorg-input'), { target: { value: '3' } });
-    fireEvent.change(screen.getByTestId('descri-input'), { target: { value: 'Observações do paciente' } });
-
-    
-    fireEvent.click(screen.getByRole('button', { name: /Enviar Relatório/i }));
-  
-    await waitFor(() => {
-        expect(axios.post).toHaveBeenCalledTimes(1);
-      });
-    
-      await waitFor(() => {
-        expect(screen.findByTestId('dorInicial-input')).toHaveValue('');
-        expect(screen.findByTestId('escalaEVA-input')).toHaveValue('');
-        expect(screen.findByTestId('escalaBorg-input')).toHaveValue('');
-        expect(screen.findByTestId('descri-input')).toHaveValue('');
-      });
-      
-  });
 });

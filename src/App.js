@@ -9,8 +9,6 @@ import PatientReports from './components/PatientReports';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bulma/css/bulma.min.css';
-import { toast, ToastContainer } from 'react-toastify';
-
 
 
 function App() {
@@ -26,7 +24,6 @@ function App() {
           <Route path="/patient-reports/:patientId" element={<PatientReports/>} />
           
         </Routes>
-        <ToastContainer />
       </div>
     </Router>
   );
