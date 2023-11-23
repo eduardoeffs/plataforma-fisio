@@ -73,7 +73,7 @@ const PatientReports = () => {
               <div key={report._id} className="card">
                 <header className="card-header has-background-primary has-text-white">
                   <p className="card-header-title is-centered">
-                    Relatório {index + 1}
+                    Relato {index + 1}
                   </p>
                   <span className="trash-button is-small has-text-dark mr-1" onClick={() => startEdit(report)}>
                     <FontAwesomeIcon icon={faPencilAlt} />
