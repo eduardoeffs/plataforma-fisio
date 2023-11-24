@@ -1,7 +1,9 @@
 // src/components/PatientDashboard.js
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 const API_URL = 'http://localhost:3001';
 
@@ -74,7 +76,13 @@ function PatientDashboard() {
 
   return (
     <section className="section">
+
       <div className="container box column is-6">
+      <div className="logout-container">
+          <NavLink to="/" className="logout-button">
+            <FontAwesomeIcon icon={faSignOutAlt} /> Sair
+          </NavLink>
+        </div>
         <h2 className="title is-2">Painel do Paciente</h2>
         <p className="subtitle">Bem-vindo ao seu painel, paciente!</p>
   
@@ -126,9 +134,7 @@ function PatientDashboard() {
           <Link to={`/patient-reports/${patientId}`} className="button is-primary mt-2">
             Visualizar Meus Relatórios
           </Link>
-          <div className="control">
-              <Link className="button is-text mt-2" to="/">Voltar para a Página Inicial</Link>
-            </div>
+ 
       
         </div>
         

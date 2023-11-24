@@ -18,7 +18,7 @@ function TherapistLogin() {
       });
 
       if (response.data.message === 'Autenticação bem-sucedida.') {
-        navigate('/therapist-dashboard');
+        navigate('/therapist-dashboard/therapist-home');
       } else {
         alert(response.data.message);
       }

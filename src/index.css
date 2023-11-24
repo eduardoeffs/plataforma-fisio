@@ -107,5 +107,43 @@ code {
 
 .tooltip-parent {
   position: relative;
-  display: inline-block; /* ou outro display que faça sentido no seu layout */
+  display: inline-block; 
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh; 
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-height: 100vh;
+}
+
+.menu-list {
+  flex-grow: 1; 
+}
+
+.content-container {
+  flex-grow: 1; 
+  padding: 1rem; 
+}
+
+.logout {
+  margin-top: 600px;
+  padding: 0.5rem 0.75rem; 
+  color: #4a4a4a; 
+  text-align: left;
+}
+
+.logout:hover {
+  background-color: #f5f5f5; 
+}
+
+.logout-container {
+  position: fixed;
+
 }
