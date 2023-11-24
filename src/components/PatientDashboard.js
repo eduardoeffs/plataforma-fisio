@@ -25,20 +25,19 @@ function PatientDashboard() {
       setPatientId(storedPatientId);
     }
 
-    // Função para buscar os relatórios do paciente
     const fetchReports = async () => {
       if (storedPatientId) {
         try {
           const response = await axios.get(`${API_URL}/api/reports/${storedPatientId}`);
-          setReports(response.data.reports); // Atualiza o estado com os relatórios recebidos
+          setReports(response.data.reports);
         } catch (error) {
           console.error('Erro ao buscar relatórios:', error);
         }
       }
     };
 
-    fetchReports(); // Chama a função ao montar o componente
-  }, []); // O useEffect será re-executado se o patientId mudar
+    fetchReports();
+  }, []); 
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -69,7 +68,7 @@ function PatientDashboard() {
       alert('Relatório enviado com sucesso!')
     } catch (error) {
       console.error('Erro ao enviar o relatório:', error);
-      // Exiba um erro ou trate como necessário
+
     }
   };
 
