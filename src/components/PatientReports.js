@@ -75,11 +75,11 @@ const PatientReports = () => {
                   <p className="card-header-title is-centered">
                     Relato {index + 1}
                   </p>
-                  <span className="trash-button is-small has-text-dark mr-1" onClick={() => startEdit(report)}>
+                  <span aria-label='edit report' className="trash-button is-small has-text-dark mr-1" onClick={() => startEdit(report)}>
                     <FontAwesomeIcon icon={faPencilAlt} />
                   </span>
                   
-                  <span className="trash-button-green" onClick={() => showDeleteReportConfirmation(report._id)}>
+                  <span aria-label='delete report' className="trash-button-green" onClick={() => showDeleteReportConfirmation(report._id)}>
                     <FontAwesomeIcon icon={faTrash} />
                   </span>
                 </header>
@@ -87,6 +87,7 @@ const PatientReports = () => {
                   {editingReport && editingReport._id === report._id ? (
                     <div className="content">
                       <input
+                        aria-label='Dor Inicial'
                         className="input"
                         type="text"
                         name="dorInicial"
@@ -94,6 +95,7 @@ const PatientReports = () => {
                         onChange={handleEditChange}
                       />
                       <input
+                        aria-label='Escala EVA'
                         className="input"
                         type="number"
                         name="escalaEVA"
@@ -101,6 +103,7 @@ const PatientReports = () => {
                         onChange={handleEditChange}
                       />
                       <input
+                        aria-label='Escala Borg'
                         className="input"
                         type="number"
                         name="escalaBorg"
