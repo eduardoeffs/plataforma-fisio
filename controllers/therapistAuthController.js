@@ -1,11 +1,9 @@
 // controllers/therapistAuthController.js
-
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const Therapist = require('../models/Therapist'); // Certifique-se de que o caminho para o modelo está correto
+const Therapist = require('../models/Therapist');
 
-// Rota para o login do fisioterapeuta
 router.post('/therapist-login', async (req, res) => {
   const { username, password } = req.body;
 
