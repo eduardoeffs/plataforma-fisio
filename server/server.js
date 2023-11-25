@@ -35,7 +35,6 @@ app.use('/api', authRoutes);
 
 const patientController = require('../controllers/patientController');
 
-
 mongoose.connect('mongodb://localhost:27017/fisio_app', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
