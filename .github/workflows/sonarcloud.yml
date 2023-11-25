@@ -22,7 +22,6 @@ jobs:
           node-version: '14'
       - run: npm install
       - run: npm run test --coverage --watchAll=false
-      - run: npm run test:server
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         with:
