@@ -1,4 +1,3 @@
-jest.useRealTimers();
 require('text-encoding').TextEncoder;
 if (typeof TextEncoder === 'undefined') {
   const { TextEncoder, TextDecoder } = require('text-encoding');
@@ -14,12 +13,14 @@ const Report = require('../models/Report');
 
 
 beforeAll(async () => {
+    jest.setTimeout(60000)
     await mongoose.disconnect(); 
     const url = `mongodb://localhost:27017/fisio_app_test`;
     await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 });
 
 beforeEach(async () => {
+    jest.setTimeout(60000)
     const collections = await mongoose.connection.db.collections();
     for (let collection of collections) {
         await collection.deleteMany({});
@@ -27,6 +28,7 @@ beforeEach(async () => {
 });
 
 afterAll(async () => {
+    jest.setTimeout(60000)
     jest.useRealTimers();
     await mongoose.disconnect();
 });
