@@ -8,7 +8,7 @@ function PatientLogin() {
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
-    event.preventDefault(); // Isso evita o recarregamento da página
+    event.preventDefault();
 
     try {
       const response = await axios.post('http://localhost:3001/api/patient-login', {
@@ -17,9 +17,8 @@ function PatientLogin() {
       });
 
       if (response.data.message === 'Autenticação bem-sucedida.') {
-        // Redirecione para o painel do paciente
         localStorage.setItem('patientId', response.data.patientId);
-        console.log(localStorage.getItem('patientId')); // Certifique-se de que a API está retornando o patientId
+        console.log(localStorage.getItem('patientId'));
         navigate('/patient-dashboard');
       } 
     } catch (error) {
@@ -52,8 +51,8 @@ function PatientLogin() {
                 <span className="icon is-small is-left">
                   <i className="fas fa-envelope"></i>
                 </span>
-                <span class="icon is-small is-right">
-                  <i class="fas fa-check"></i>
+                <span className="icon is-small is-right">
+                  <i className="fas fa-check"></i>
                 </span>
               </p>
             </div>
