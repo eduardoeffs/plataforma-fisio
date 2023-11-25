@@ -45,7 +45,7 @@ jobs:
             -Dsonar.projectKey=eduardoeffs_plataforma-fisio
             -Dsonar.organization=eduardoeffs
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-            -Dsonar.coverage.exclusions=**/*.test.js,**/__tests__/**,**/reportWebVitals.js,**/__mocks__/**,**/start.js/**
+            -Dsonar.coverage.exclusions=**/*.test.js,**/__tests__/**,src/reportWebVitals.js,**/__mocks__/**,server/start.js,src/index.js
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
