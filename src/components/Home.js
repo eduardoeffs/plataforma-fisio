@@ -11,7 +11,7 @@ function Home() {
       <section className="hero has-background-grey-lighter">
         <div className="hero-body">
           <p className="title has-text-grey-darker">
-            Sistema de Acompanhamento de Dor
+            Sistema de Acompanhamento para clínicas de Fisioterapia
           </p>
           <p className="subtitle has-text-grey-darker">
             Seja bem-vindo! Este sistema permite o registro e acompanhamento do nível de dor de pacientes.
