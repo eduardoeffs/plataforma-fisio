@@ -45,11 +45,11 @@ function TherapistLogin() {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
-                <span class="icon is-small is-left">
-                  <i class="fas fa-envelope"></i>
+                <span className="icon is-small is-left">
+                  <i className="fas fa-envelope"></i>
                 </span>
-                <span class="icon is-small is-right">
-                  <i class="fas fa-check"></i>
+                <span className="icon is-small is-right">
+                  <i className="fas fa-check"></i>
                 </span>
               </p>
             </div>
