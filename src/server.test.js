@@ -1,3 +1,4 @@
+jest.useRealTimers();
 require('text-encoding').TextEncoder;
 if (typeof TextEncoder === 'undefined') {
   const { TextEncoder, TextDecoder } = require('text-encoding');
@@ -14,27 +15,26 @@ const Report = require('../models/Report');
 
 
 beforeAll(async () => {
-    jest.setTimeout(100000);
     await mongoose.disconnect(); 
     const url = `mongodb://localhost:27017/fisio_app_test`;
     await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 });
 
 beforeEach(async () => {
-    jest.setTimeout(100000);
     const collections = await mongoose.connection.db.collections();
     for (let collection of collections) {
         await collection.deleteMany({});
     }
-});
+}, 10000);
 
 afterAll(async () => {
+    jest.useRealTimers();
     await mongoose.disconnect();
 });
 
 describe('POST /api/create-patient', () => {
     it('should create a new patient with valid data', async () => {
-      jest.setTimeout(100000);
+
         const patientData = {
             firstName: 'John',
             lastName: 'Doe',
@@ -51,7 +51,7 @@ describe('POST /api/create-patient', () => {
     });
 
     it('should respond with an error when trying to create a patient with an existing email', async () => {
-      jest.setTimeout(100000);
+
         const patientData = {
             firstName: 'Jane',
             lastName: 'Doe',
@@ -70,7 +70,7 @@ describe('POST /api/create-patient', () => {
     });
 
     it('should encrypt the patient password before saving to the database', async () => {
-      jest.setTimeout(100000);
+
         const patientData = {
             firstName: 'Alice',
             lastName: 'Smith',
@@ -89,7 +89,7 @@ describe('POST /api/create-patient', () => {
 
 describe('POST /api/create-therapist', () => {
     it('should create a new therapist with valid data', async () => {
-      jest.setTimeout(100000);
+
       const therapistData = {
         username: 'newtherapist',
         password: 'securepassword'
@@ -107,7 +107,7 @@ describe('POST /api/create-therapist', () => {
     });
   
     it('should respond with an error when a username is already taken', async () => {
-      jest.setTimeout(100000);
+
       const therapistData = {
         username: 'existingtherapist',
         password: 'securepassword'
@@ -125,7 +125,7 @@ describe('POST /api/create-therapist', () => {
     });
   
     it('should encrypt the therapist password before saving to the database', async () => {
-      jest.setTimeout(100000);
+
       const therapistData = {
         username: 'therapistToEncrypt',
         password: 'passwordToEncrypt'
@@ -142,7 +142,7 @@ describe('POST /api/create-therapist', () => {
 
   describe('GET /api/patients', () => {
     it('should return a list of patients', async () => {
-      jest.setTimeout(100000);
+
       const patientsData = [
         { firstName: 'Patient1', lastName: 'Test1', email: 'patient1@example.com', password: 'password1' },
         { firstName: 'Patient2', lastName: 'Test2', email: 'patient2@example.com', password: 'password2' }
@@ -157,7 +157,7 @@ describe('POST /api/create-therapist', () => {
     });
   
     it('should respond with a 500 error if there is a problem fetching patients', async () => {
-      jest.setTimeout(100000);
+
       jest.spyOn(Patient, 'find').mockImplementationOnce(() => {
         throw new Error('Database error');
       });
@@ -171,7 +171,7 @@ describe('POST /api/create-therapist', () => {
 
   describe('GET /api/patients/:patientId/reports', () => {
     it('should return the correct reports for a specific patient', async () => {
-      jest.setTimeout(100000);
+
       const patient = await new Patient({ firstName: 'Test', lastName: 'User', email: 'test@example.com', password: 'password' }).save();
       const reportsData = [
         { patient: patient._id, reportData: 'Report 1' },
@@ -187,7 +187,7 @@ describe('POST /api/create-therapist', () => {
     });
   
     it('should test the route behavior with an invalid `patientId`', async () => {
-      jest.setTimeout(100000);
+
       const invalidPatientId = 'invalidpatientid';
       
       const response = await request(app).get(`/api/patients/${invalidPatientId}/reports`);
@@ -218,7 +218,7 @@ describe('POST /api/create-therapist', () => {
     });
   
     it('should update an existing report with valid data', async () => {
-      jest.setTimeout(100000);
+
       const updatedData = { dorInicial: 'Moderada' };
   
       const response = await request(app)
@@ -230,7 +230,7 @@ describe('POST /api/create-therapist', () => {
     });
   
     it('should return an error if the report does not exist', async () => {
-      jest.setTimeout(100000);
+
       const response = await request(app)
         .put(`/api/reports/${new mongoose.Types.ObjectId()}`)
         .send({ dorInicial: 'Moderada' });
@@ -261,7 +261,7 @@ describe('POST /api/create-therapist', () => {
       });
   
     it('should correctly delete a report', async () => {
-      jest.setTimeout(100000);
+
       const res = await request(app)
         .delete(`/api/reports/${createdReport._id}`);
       
@@ -275,7 +275,7 @@ describe('POST /api/create-therapist', () => {
 
   describe('DELETE /api/patients/:patientId', () => {
     it('should correctly delete a patient', async () => {
-      jest.setTimeout(100000);
+
       const patient = new Patient({
         firstName: 'Teste',
         lastName: 'Paciente',
