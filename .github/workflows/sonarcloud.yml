@@ -36,7 +36,7 @@ jobs:
       - name: Run tests
         env:
           MONGODB_URI: mongodb://localhost:27017/fisio_app_test
-        run: npm run test --coverage --watchAll=false
+        run: npm run test:coverage
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
