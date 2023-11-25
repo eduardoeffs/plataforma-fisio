@@ -41,7 +41,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:coverage": "cross-env NODE_ENV=test react-scripts test --coverage --watchAll=false",
+    "test:coverage": "cross-env NODE_ENV=test react-scripts test --coverage --watchAll=false --testTimeout=100000",
     "test:server": "cross-env NODE_ENV=test jest server.test.js"
   },
   "babel": {
@@ -85,7 +85,6 @@
     },
     "moduleNameMapper": {
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
-    },
-    "testTimeout": 100000
+    }
   }
 }
