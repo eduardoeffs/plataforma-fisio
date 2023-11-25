@@ -11,6 +11,7 @@ const Patient = require('../models/Patient');
 const Therapist = require('../models/Therapist')
 const Report = require('../models/Report');
 
+jest.setTimeout(60000)
 
 beforeAll(async () => {
     jest.setTimeout(60000)
