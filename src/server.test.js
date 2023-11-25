@@ -17,7 +17,7 @@ beforeAll(async () => {
     await mongoose.disconnect(); 
     const url = `mongodb://localhost:27017/fisio_app_test`;
     await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
-}, 3000);
+}, 30000);
 
 beforeEach(async () => {
     const collections = await mongoose.connection.db.collections();
