@@ -12,16 +12,31 @@ jobs:
   build:
     name: Build and SonarCloud analysis
     runs-on: ubuntu-latest
+
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+        options: --health-cmd "mongo --eval 'db.runCommand({ping: 1})' --quiet" --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+
       - run: npm install
-      - run: npm run test --coverage --watchAll=false
+
+      - name: Run tests
+        env:
+          MONGODB_URI: mongodb://localhost:27017/fisio_app_test
+        run: npm run test --coverage --watchAll=false
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         with:
