@@ -64,6 +64,7 @@ const TherapistDashboard = () => {
                 <button
                     onClick={() => showDeleteConfirmation(patient._id)}
                     className="trash-button is-pulled-right"
+                    aria-label='delete patient'
                   >
                   <FontAwesomeIcon icon={faTrash} />
                   </button>
