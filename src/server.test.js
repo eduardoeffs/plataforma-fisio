@@ -19,7 +19,6 @@ beforeAll(async () => {
     const url = `mongodb://localhost:27017/fisio_app_test`;
     await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 });
-
 beforeEach(async () => {
     jest.setTimeout(60000)
     const collections = await mongoose.connection.db.collections();
@@ -27,7 +26,6 @@ beforeEach(async () => {
         await collection.deleteMany({});
     }
 });
-
 afterAll(async () => {
     jest.setTimeout(60000)
     jest.useRealTimers();
