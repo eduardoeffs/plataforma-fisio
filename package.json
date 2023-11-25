@@ -43,7 +43,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
-    "test:server": "cross-env NODE_ENV=test jest server.test.js "
+    "test:server": "cross-env NODE_ENV=test jest server.test.js"
   },
   "babel": {
     "presets": [
@@ -74,6 +74,7 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "server/**/*.{js,jsx}",
+      "controllers/**/*.{js,jsx}",
       "!<rootDir>/src/**/*.test.{js,jsx,ts,tsx}",
       "!<rootDir>/src/**/__tests__/**",
       "!<rootDir>/src/serviceWorker.js",
