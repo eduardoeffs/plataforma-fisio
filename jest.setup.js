@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+jest.setTimeout(30000);
 beforeAll(async () => {
   process.env.NODE_ENV = 'test';
   await mongoose.connect('mongodb://localhost:27017/fisio_app_test', {

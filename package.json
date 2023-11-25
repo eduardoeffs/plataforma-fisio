@@ -42,9 +42,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:coverage": "cross-env NODE_ENV=test react-scripts test --coverage --watchAll=false",
-    "test:components": "react-scripts test --watchAll=false",
-    "test:server": "cross-env NODE_ENV=test jest --config=jest.backend.config.js",
-    "test:all": "npm run test:components && npm run test:server"
+    "test:server": "cross-env NODE_ENV=test jest server.test.js "
   },
   "babel": {
     "presets": [

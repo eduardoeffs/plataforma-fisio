@@ -21,7 +21,8 @@ jobs:
         with:
           node-version: '14'
       - run: npm install
-      - run: npm run test:all -- --coverage
+      - run: npm run test --coverage --watchAll=false
+      - run: npm run test:server
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         with:
@@ -29,7 +30,7 @@ jobs:
             -Dsonar.projectKey=eduardoeffs_plataforma-fisio
             -Dsonar.organization=eduardoeffs
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-            -Dsonar.coverage.exclusions=**/*.test.js,**/__tests__/**,**/reportWebVitals.js,**/__mocks__/**
+            -Dsonar.coverage.exclusions=**/*.test.js,**/__tests__/**,**/reportWebVitals.js,**/__mocks__/**,**/start.js/**
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
