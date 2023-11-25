@@ -7,7 +7,6 @@ const Therapist = require('../models/Therapist')
 const Report = require('../models/Report');
 
 const app = express();
-const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
@@ -133,6 +132,11 @@ app.put('/api/reports/:id', async (req, res) => {
       req.body, 
       { new: true }
     );
+
+    if (!report) {
+      return res.status(404).send({ message: 'Relatório não encontrado.' });
+    }
+    
     res.send(report);
   } catch (error) {
     res.status(500).send(error);
@@ -149,9 +153,7 @@ app.delete('/api/reports/:reportId', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
-});
+module.exports = app;
 
 
 
