@@ -7,7 +7,6 @@ describe('Home', () => {
     render(<Home />);
     expect(screen.getByText('Sistema de Acompanhamento para clínicas de Fisioterapia')).toBeInTheDocument();
   });
-
   test('renders the subtitle', () => {
     render(<Home />);
     expect(screen.getByText('Seja bem-vindo! Este sistema permite o registro e acompanhamento do nível de dor de pacientes.')).toBeInTheDocument();
