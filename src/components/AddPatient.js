@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_URL = 'http://localhost:3001';
 
 
-const TherapistDashboard = () => {
+const AddPatient = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -117,4 +117,4 @@ const TherapistDashboard = () => {
   );
 };
 
-export default TherapistDashboard;
+export default AddPatient;

@@ -6,7 +6,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 const API_URL = 'http://localhost:3001';
 
 
-const TherapistDashboard = () => {
+const PatientList = () => {
   const [patients, setPatients] = useState([]);
   const [isConfirming, setIsConfirming] = useState(false); // Estado para controle do modal de confirmação
   const [patientToDelete, setPatientToDelete] = useState(null);
@@ -103,4 +103,4 @@ const TherapistDashboard = () => {
   );
 };
 
-export default TherapistDashboard;
+export default PatientList;
