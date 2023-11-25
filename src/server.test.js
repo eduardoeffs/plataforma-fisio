@@ -1,4 +1,3 @@
-jest.useRealTimers();
 require('text-encoding').TextEncoder;
 if (typeof TextEncoder === 'undefined') {
   const { TextEncoder, TextDecoder } = require('text-encoding');
@@ -13,7 +12,6 @@ const Therapist = require('../models/Therapist')
 const Report = require('../models/Report');
 
 
-
 beforeAll(async () => {
     await mongoose.disconnect(); 
     const url = `mongodb://localhost:27017/fisio_app_test`;
@@ -25,7 +23,7 @@ beforeEach(async () => {
     for (let collection of collections) {
         await collection.deleteMany({});
     }
-}, 10000);
+});
 
 afterAll(async () => {
     jest.useRealTimers();
