@@ -14,10 +14,10 @@ const Report = require('../models/Report');
 
 
 beforeAll(async () => {
+    jest.setTimeout(100000);
     await mongoose.disconnect(); 
     const url = `mongodb://localhost:27017/fisio_app_test`;
     await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
-    jest.setTimeout(100000);
 });
 
 beforeEach(async () => {
@@ -28,8 +28,8 @@ beforeEach(async () => {
 });
 
 afterAll(async () => {
-    await mongoose.disconnect();
     jest.setTimeout(100000);
+    await mongoose.disconnect();
 });
 
 describe('POST /api/create-patient', () => {
