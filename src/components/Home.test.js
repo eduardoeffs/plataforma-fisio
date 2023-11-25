@@ -5,7 +5,7 @@ import Home from './Home';
 describe('Home', () => {
   test('renders the main title', () => {
     render(<Home />);
-    expect(screen.getByText('Sistema de Acompanhamento de Dor')).toBeInTheDocument();
+    expect(screen.getByText('Sistema de Acompanhamento para clínicas de Fisioterapia')).toBeInTheDocument();
   });
 
   test('renders the subtitle', () => {
