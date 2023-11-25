@@ -1,9 +1,17 @@
+require('text-encoding').TextEncoder;
+if (typeof TextEncoder === 'undefined') {
+  const { TextEncoder, TextDecoder } = require('text-encoding');
+  global.TextEncoder = TextEncoder;
+  global.TextDecoder = TextDecoder;
+}
 const request = require('supertest');
 const mongoose = require('mongoose');
-const app = require('./server');
+const app = require('../server/server');
 const Patient = require('../models/Patient');
 const Therapist = require('../models/Therapist')
 const Report = require('../models/Report');
+
+
 
 beforeAll(async () => {
     await mongoose.disconnect(); 
