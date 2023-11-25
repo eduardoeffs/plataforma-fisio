@@ -1,3 +1,4 @@
+jest.useRealTimers();
 require('text-encoding').TextEncoder;
 if (typeof TextEncoder === 'undefined') {
   const { TextEncoder, TextDecoder } = require('text-encoding');
