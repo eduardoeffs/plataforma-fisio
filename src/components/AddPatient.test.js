@@ -8,7 +8,7 @@ import AddPatient from './AddPatient';
 jest.mock('axios');
 
 describe('AddPatient', () => {
-  const API_URL = 'http://localhost:3001';
+  const API_URL = 'https://plataforma-app.azurewebsites.net/';
   beforeEach(() => {
     window.alert = jest.fn();
     render(

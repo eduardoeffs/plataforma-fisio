@@ -16,7 +16,7 @@ const PatientReports = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/api/patients/${patientId}/reports`);
+        const response = await axios.get(`https://plataforma-app.azurewebsites.net/api/patients/${patientId}/reports`);
         setReports(response.data);
       } catch (error) {
         console.error('Erro ao buscar relatórios:', error);
@@ -36,7 +36,7 @@ const PatientReports = () => {
 
   const saveEdit = async () => {
     try {
-      const response = await axios.put(`http://localhost:3001/api/reports/${editingReport._id}`, editingReport);
+      const response = await axios.put(`https://plataforma-app.azurewebsites.net/api/reports/${editingReport._id}`, editingReport);
       setReports(reports.map((report) => (report._id === editingReport._id ? response.data : report)));
       setEditingReport(null);
     } catch (error) {
@@ -50,7 +50,7 @@ const PatientReports = () => {
 
   const deleteReport = async () => {
     try {
-      await axios.delete(`http://localhost:3001/api/reports/${reportToDelete}`);
+      await axios.delete(`https://plataforma-app.azurewebsites.net/api/reports/${reportToDelete}`);
       setReports(reports.filter((report) => report._id !== reportToDelete));
       setIsConfirmingDeleteReport(false); // Fechar o modal após a exclusão
     } catch (error) {
