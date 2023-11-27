@@ -32,7 +32,6 @@ app.use(session({
   }
 }));
 
-
 const therapistAuthRoutes = require('../controllers/therapistAuthController');
 app.use('/api', therapistAuthRoutes);
 
