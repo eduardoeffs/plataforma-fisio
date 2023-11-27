@@ -11,7 +11,7 @@ function PatientLogin() {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/api/patient-login', {
+      const response = await axios.post('https://plataforma-app.azurewebsites.net/api/patient-login', {
         email,
         password
       });

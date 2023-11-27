@@ -5,7 +5,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
-const API_URL = 'http://localhost:3001';
+const API_URL = 'https://plataforma-app.azurewebsites.net';
 
 function PatientDashboard() {
   const [reports, setReports] = useState([]);

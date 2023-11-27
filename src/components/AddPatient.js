@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-const API_URL = 'http://localhost:3001';
 
 
 const AddPatient = () => {
@@ -33,7 +32,7 @@ const AddPatient = () => {
       password: password
     };
 
-    axios.post(`${API_URL}/api/create-patient`, newPatient)
+    axios.post(`https://plataforma-app.azurewebsites.net/api/create-patient`, newPatient)
       .then(response => {
         console.log('Paciente criado com sucesso:', response.data);
         alert('Paciente criado com sucesso!')

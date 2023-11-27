@@ -12,7 +12,7 @@ function TherapistLogin() {
     e.preventDefault(); // Evitar o recarregamento da página
 
     try {
-      const response = await axios.post('http://localhost:3001/api/therapist-login', {
+      const response = await axios.post('https://plataforma-app.azurewebsites.net/api/therapist-login', {
         username,
         password
       });
