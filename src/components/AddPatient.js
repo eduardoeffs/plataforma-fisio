@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-const API_URL = 'https://plataforma-app.azurewebsites.net/';
+const API_URL = 'http://localhost:3001';
 
 
 const AddPatient = () => {
