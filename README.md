@@ -4,21 +4,20 @@ Desenvolver um sistema de acompanhamento de pacientes em fisioterapia, que permi
 
 # Escopo:
 1. Cadastro de usuários;
-    * Fisioterapeutas podem criar contas com informações de login seguras.
-    * Fisioterapeutas podem adicionar, editar e remover pacientes associados à sua conta.
+    * Fisioterapeutas podem criar contas para os pacientes com informações de login seguras.
 2. Painel do Fisioterapeuta:
     * Fisioterapeutas podem:
         * Visualizar uma lista de pacientes associados à sua conta.
-        * Adicionar, editar e remover pacientes.
+        * Adicionar e remover pacientes.
         * Visualizar o progresso de cada paciente através dos formulários preenchidos por cada paciente.
-        * Visualizar o histórico de formulários de cada paciente.
+        * Editar ou remover um relatório que foi preenchido incorretamente.
 3. Painel do Paciente:
     * Pacientes podem:
         * Preencher o formulário sobre o seu progresso.
         * Visualizar o histórico dos formulários preenchidos.
+        * Editar ou remover um relatório que foi preenchido incorretamente.
 4. Segurança e Privacidade:
-    * Implementação de medidas de criptografia e autenticação segura para garantir a segurança dos dados dos pacientes.
-    *Garantia de conformidade com regulamentações de privacidade de dados, como a Lei Geral de Proteção de Dados (LGPD).
+    * Implementação de medidas de criptografia segura para garantir a segurança dos dados dos pacientes.
 5. Testes e Validação:
     * Realização de testes unitários e de integração no sistema para assegurar seu funcionamento adequado.
 
@@ -34,44 +33,47 @@ Desenvolver um sistema de acompanhamento de pacientes em fisioterapia, que permi
 * React Router: Para lidar com a navegação entre páginas.
 * Axios: Biblioteca para realizar requisições HTTP para o servidor.
 * HTML e CSS: Linguagens para estruturar e estilizar as páginas.
+* Bulma: Framework de CSS.
 
 ## Backend
 * Node.js: Plataforma JavaScript para construção de aplicações do lado do servidor.
 * Express.js: Framework para construir aplicativos web com Node.js.
-* SQL Server: Sistema de gerenciamento de banco de dados relacional.
-* MSSQL: Biblioteca para conexão e interação com o SQL Server.
-* JWT (JSON Web Tokens): Para autenticação e autorização de usuários.
+* MongoDB: Sistema de gerenciamento de banco de dados não relacional.
+* Atlas: Biblioteca para conexão e interação com o SQL Server.
+* Bcrypt: Método de criptografia do tipo hash para senhas.
+* Postman: Testes da APIs.
 
 ## Teste e qualidade
-* Cypress: Framework de teste de ponta a ponta para testar a interface do usuário.
-* SonarQube: Análise estática de código e detecção de problemas de qualidade.
+* React Testing Library: É um conjunto de utilitários que facilitam as consultas à DOM exatamente como um usuário faria
+* Jest: Framework de Testes em JavaScript com um foco na simplicidade.
+* Supertest: É utilizado para testes de chamadas HTTP REST, possibilitando testar requisições do tipo GET, POST, PUT, DELETE e PATCH.
+* SonarCloud: Análise de qualidade do código fonte, cobertura dos testes.
 
 # Requisitos do projeto
 ## Requisitos funcionais:
 1. Cadastro de Usuários:
-    * RF1: Fisioterapeutas podem criar contas com informações de login seguras.
-    * RF2: Fisioterapeutas podem adicionar, editar e remover pacientes associados à sua conta.
+    * RF1: Fisioterapeutas podem criar contas para os pacientes com informações de login seguras.
 2. Painel do Fisioterapeuta:
-    * RF3: Fisioterapeutas podem visualizar uma lista de pacientes associados à sua conta.
-    * RF4: Fisioterapeutas podem adicionar, editar e remover pacientes.
-    * RF5: Fisioterapeutas podem visualizar o progresso de cada paciente através dos formulários preenchidos por cada paciente.
-    * RF6: Fisioterapeutas podem visualizar o histórico de formulários de cada paciente.
+    * RF2: Fisioterapeutas podem visualizar uma lista de pacientes associados à sua conta.
+    * RF3: Fisioterapeutas podem adicionar, editar e remover pacientes.
+    * RF4: Fisioterapeutas podem visualizar o progresso de cada paciente através dos formulários preenchidos por cada paciente.
+    * RF5: Fisioterapeutas podem editar ou remover um relatório que foi preenchido incorretamente.
 3. Painel do Paciente:
-    * RF7: Pacientes podem preencher o formulário sobre o seu progresso.
-    * RF8: Pacientes podem visualizar o histórico dos formulários preenchidos.
+    * RF6: Pacientes podem preencher o formulário sobre o seu progresso.
+    * RF7: Pacientes podem visualizar o histórico dos formulários preenchidos.
+    * RF8: Pacientes podem editar ou remover um relatório que foi preenchido incorretamente.
 ## Requisitos Não Funcionais:
 1. Segurança e Privacidade:
     * RNF1: Implementação de medidas de criptografia para garantir a segurança dos dados dos pacientes.
     * RNF2: Autenticação segura para acesso ao sistema.
-    * RNF3: Garantia de conformidade com regulamentações de privacidade de dados, como a Lei Geral de Proteção de Dados (LGPD).
 2. Desempenho:
-    * RNF4: O sistema deve responder de forma rápida e eficiente, mesmo com um grande número de usuários e registros.
+    * RNF3: O sistema deve responder de forma rápida e eficiente, mesmo com um grande número de usuários e registros.
 3. Usabilidade:
-    * RNF6: A interface do usuário deve ser intuitiva e de fácil navegação para fisioterapeutas e pacientes.
+    * RNF4: A interface do usuário deve ser intuitiva e de fácil navegação para fisioterapeutas e pacientes.
 4. Manutenibilidade:
-    * RNF8: O código deve ser bem organizado e documentado para facilitar futuras atualizações e manutenções.
+    * RNF5: O código deve ser bem organizado e documentado para facilitar futuras atualizações e manutenções.
 5. Testes e Validação:
-    * RNF9: Realização de testes unitários e de integração no sistema para assegurar seu funcionamento adequado.
+    * RNF6: Realização de testes unitários e de integração no sistema para assegurar seu funcionamento adequado.
 
 
 # Metodologia de Organização de Tarefas
@@ -90,7 +92,7 @@ A utilização do FDD proporcionará os seguintes benefícios para o projeto:
 * Configuração do ambiente de desenvolvimento.
 * Estruturação do projeto (organização de pastas e arquivos).
 * Comunicação entre o backend e frontend.
-* Documentação do código.
+* Documentação do projeto.
 
 ### Pacote 2: Interação do Paciente
 * Criação de formulários para os pacientes preencherem.
@@ -100,12 +102,11 @@ A utilização do FDD proporcionará os seguintes benefícios para o projeto:
 * Cadastro de pacientes.
 * Listagem de pacientes.
 * Visualização dos formulários preenchidos pelos pacientes.
-* Visualização do histórico de cada paciente.
+* Edição e remoção dos fomrulários preenchidos pelos pacientes.
 
 
 ### Pacote 4: Autenticação, Segurança e Qualidade
 * Sistema de autenticação seguro.
-* Segurança e proteção de dados (cumprimento de regulamentações como LGPD).
 * Implementação de testes unitários e de integração.
 * Monitoramento de qualidade de código.
 * Integração contínua (CI) e integração contínua/desdobramento contínuo (CI/CD).
