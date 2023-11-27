@@ -60,7 +60,6 @@ const PatientReports = () => {
     setReportToDelete(reportId);
     setIsConfirmingDeleteReport(true);
   };
-
   return (
     <section className="section">
       <div className="container">
