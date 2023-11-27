@@ -6,9 +6,15 @@ const Patient = require('../models/Patient');
 const Therapist = require('../models/Therapist')
 const Report = require('../models/Report');
 
+
 const app = express();
-app.use(cors());
 app.use(express.json());
+
+app.use(cors({
+  origin: '*', 
+  methods: '*',
+  allowedHeaders: '*'
+}));
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -35,7 +41,7 @@ app.use('/api', authRoutes);
 
 const patientController = require('../controllers/patientController');
 
-mongoose.connect('mongodb://localhost:27017/fisio_app', {
+mongoose.connect('mongodb+srv://eduardoeffs:VPuX9dlGqOfr5kq8@cluster0.xynck3a.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
