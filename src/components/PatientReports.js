@@ -47,7 +47,6 @@ const PatientReports = () => {
   const cancelEdit = () => {
     setEditingReport(null);
   };
-
   const deleteReport = async () => {
     try {
       await axios.delete(`https://plataforma-app.azurewebsites.net/api/reports/${reportToDelete}`);
@@ -57,7 +56,6 @@ const PatientReports = () => {
       console.error('Erro ao excluir relatório:', error);
     }
   };
-
   const showDeleteReportConfirmation = (reportId) => {
     setReportToDelete(reportId);
     setIsConfirmingDeleteReport(true);
