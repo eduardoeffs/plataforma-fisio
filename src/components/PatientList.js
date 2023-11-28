@@ -39,7 +39,7 @@ const PatientList = () => {
   };
 
   // Função para excluir o paciente
-  const deletePatient = async () => {
+  const deletePatient = async (patientToDelete) => {
     if (patientToDelete) {
       try {
         await axios.delete(`${API_URL}/api/patients/${patientToDelete}`);
