@@ -138,7 +138,7 @@ Se você deseja contribuir para o projeto Sistema de Acompanhamento Fisioterapê
 ## Configuração Inicial
 
 1. Faça o clone do repositório:
-   * git clone https://github.com/seu-usuario/sistema-acompanhamento-fisio.git
+   * git clone https://github.com/eduardoeffs/sistema-acompanhamento-fisio.git
 2. Instale as dependências do projeto utilizando `npm`:
    * npm install
 ## Executando o Projeto
