@@ -117,13 +117,13 @@ Para acessar mais informações e detalhes sobre o projeto e cobertura de testes
 [SonarCloud](https://sonarcloud.io/summary/overall?id=eduardoeffs_plataforma-fisio) </br>
 [Monitoramento](https://github.com/eduardoeffs/plataforma-fisio/blob/master/docs/monitoramento/monitoramento.jpg)
 
-#Infaestrutura
+## Infaestrutura
 * Frontend: Vercel
 * Backend: Azure
 * Banco de Dados: Atlas
 * CI/CD: Github Actions
 
-#Acesso da aplicação em produção
+# Acesso da aplicação em produção
 https://plataforma-fisio.vercel.app/
 
 * Login do Fisioterapeuta:
@@ -132,7 +132,7 @@ https://plataforma-fisio.vercel.app/
 * Login do Paciente:
      * Email: eduardoeffs@gmail.com
      * Senha: dudu123
-#Para contribuir com o projeto
+# Para contribuir com o projeto
 Se você deseja contribuir para o projeto Sistema de Acompanhamento Fisioterapêutico, seja para implementar novas funcionalidades, corrigir bugs ou para estudos acadêmicos, siga os passos abaixo. Não esqueça de abrir um Pull Request para que possamos revisar e discutir suas mudanças.
 
 ## Configuração Inicial
