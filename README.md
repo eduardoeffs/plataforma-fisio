@@ -111,4 +111,61 @@ A utilização do FDD proporcionará os seguintes benefícios para o projeto:
 * Monitoramento de qualidade de código.
 * Integração contínua (CI) e integração contínua/desdobramento contínuo (CI/CD).
 
-Para acessar mais informações e detalhes sobre o projeto, como progresso das histórias de usuários, clique no [Board.](https://trello.com/b/kfTzpUDS/tcc)
+
+Para acessar mais informações e detalhes sobre o projeto e cobertura de testes, clique nos links abaixo: </br>
+[Board](https://trello.com/b/kfTzpUDS/tcc) </br>
+[SonarCloud](https://sonarcloud.io/summary/overall?id=eduardoeffs_plataforma-fisio) </br>
+[Monitoramento](https://github.com/eduardoeffs/plataforma-fisio/blob/master/docs/monitoramento/monitoramento.jpg)
+
+#Infaestrutura
+* Frontend: Vercel
+* Backend: Azure
+* Banco de Dados: Atlas
+* CI/CD: Github Actions
+
+#Acesso da aplicação em produção
+https://plataforma-fisio.vercel.app/
+
+* Login do Fisioterapeuta:
+     * Username: eduardofisio
+     * Senha: fisio123
+* Login do Paciente:
+     * Email: eduardoeffs@gmail.com
+     * Senha: dudu123
+#Para contribuir com o projeto
+Se você deseja contribuir para o projeto Sistema de Acompanhamento Fisioterapêutico, seja para implementar novas funcionalidades, corrigir bugs ou para estudos acadêmicos, siga os passos abaixo. Não esqueça de abrir um Pull Request para que possamos revisar e discutir suas mudanças.
+
+## Configuração Inicial
+
+1. Faça o clone do repositório:
+   * git clone https://github.com/seu-usuario/sistema-acompanhamento-fisio.git
+2. Instale as dependências do projeto utilizando `npm`:
+   * npm install
+## Executando o Projeto
+1. Para iniciar o servidor do back-end, execute:
+   * node server/start.js
+   * Certifique-se de ter o MongoDB rodando localmente ou configurado corretamente se estiver utilizando um serviço na nuvem.
+2. Para iniciar o cliente React, utilize:
+   * npm run start-react
+   * O cliente ficará disponível em `http://localhost:3000`.
+  
+## Testes
+
+Para executar os testes do back-end e do front-end:
+   * npm run test
+
+Para verificar a cobertura dos testes:
+   * npm run test:coverage
+
+## Banco de Dados
+
+Este projeto utiliza o MongoDB. Para configurar o banco de dados:
+
+1. Instale o MongoDB localmente ou crie uma instância em um serviço de hospedagem de bancos de dados.
+2. Configure a string de conexão no arquivo `start.js` ou em suas variáveis de ambiente.
+
+## Pull Requests
+
+1. Crie uma nova branch a partir da `master` para suas alterações.
+2. Faça commit das suas mudanças com mensagens claras e descritivas.
+3. Suba a branch para o repositório e abra um Pull Request detalhando as mudanças realizadas.
