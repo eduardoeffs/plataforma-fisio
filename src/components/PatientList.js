@@ -54,7 +54,7 @@ const PatientList = () => {
 
   return (
     <div className="container">
-      <h2 className="title">Dashboard do Terapeuta</h2>
+      <h2 className="title">Dashboard do Fisioerapeuta</h2>
       <h2 className="subtitle">Lista de Pacientes</h2>
       <div className="columns is-multiline">
         {patients.map(patient => (

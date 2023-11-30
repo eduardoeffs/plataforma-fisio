@@ -12,8 +12,26 @@ code {
     monospace;
 }
 
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0; 
+}
+
+.section-home {
+  margin-top: 100px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 .card-header {
-  padding: 5px 10px; /* Exemplo de valores de padding menores */
+  padding: 5px 10px; 
 }
 
 .trash-button {

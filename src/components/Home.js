@@ -11,7 +11,7 @@ function Home() {
       <section className="hero has-background-grey-lighter">
         <div className="hero-body">
           <p className="title has-text-grey-darker">
-            Sistema de Acompanhamento para clínicas de Fisioterapia
+            Sistema de Acompanhamento Fisioterapêutico
           </p>
           <p className="subtitle has-text-grey-darker">
             Seja bem-vindo! Este sistema permite o registro e acompanhamento do nível de dor de pacientes.
@@ -19,11 +19,11 @@ function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-home">
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-half">
-              <div className="box">
+              <div className="box box-home">
                 <h2 className="title has-text-centered">Login</h2>
                 <div className="buttons are-large is-centered">
                   <a href="patient-login" className="button is-success is-fullwidth is-rounded">Paciente</a>

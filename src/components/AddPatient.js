@@ -50,7 +50,7 @@ const AddPatient = () => {
 
   return (
     <div className="container">
-      <h2 className="title">Dashboard do Terapeuta</h2>
+      <h2 className="title">Dashboard do Fisioterapeuta</h2>
       <h3 className="subtitle">Adicionar Paciente</h3>
 
       <div className="columns is-justify-content-center">
