@@ -20,12 +20,9 @@ code {
   margin: 0; 
 }
 
-.section-home {
-  margin-top: 100px;
-}
+
 
 .footer {
-  position: absolute;
   bottom: 0;
   width: 100%;
 }
